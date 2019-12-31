@@ -1,0 +1,29 @@
+[
+  {
+    "group": "v1",
+    "data": [
+      {
+        "name": "Check login",
+        "methods": [
+          "POST",
+          "OPTIONS",
+          "GET"
+        ],
+        "path": "/auth/verify",
+        "handler": "CheckLogin",
+        "isPublic": true
+      },
+      {
+        "name": "Check healthy",
+        "methods": [
+          "POST",
+          "OPTIONS",
+          "GET"
+        ],
+        "path": "/healthy",
+        "handler": "healthy",
+        "isPublic": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+---
+version: "3.7"
+services:
+  postgres:
+    build:
+      context: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=school
+      - POSTGRES_USER=enouvo
+      - POSTGRES_PASSWORD=123qwe
+  school_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    environment:
+      DB_HOST: 0.0.0.0
+      DB_USER: enouvo
+      DB_PASSWORD: 123qwe
+      DB_DATABASE: school
+      DB_PORT: 5432
+      DATABASE_URI: postgresql://enouvo:123qwe@postgres:5432/school?sslmode=disable
+    ports:
+      - 3001:3001
+    depends_on:
+      - postgres
+volumes:
+  pgdata:

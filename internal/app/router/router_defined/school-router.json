@@ -1,0 +1,22 @@
+[
+  {
+    "group": "v1",
+    "data": [
+      {
+        "name": "Create School",
+        "methods": [
+          "POST",
+          "OPTIONS"
+        ],
+        "key": "school",
+        "permission": {
+          "POST":[
+            "Create"
+          ]
+        },
+        "path": "/school/create",
+        "handler": "CreateSchool"
+      }
+    ]
+  }
+]
